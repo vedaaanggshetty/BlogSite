@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import IonIcon from './IonIcon';
+import Link from 'next/link';
 
 const Header: React.FC = () => {
   const [isSearchBarVisible, setIsSearchBarVisible] = useState<boolean>(false);
@@ -47,27 +48,34 @@ const Header: React.FC = () => {
                 Recent Post
               </a>
             </li>
-            {/* <li className="navbar-item">
+            <li className="navbar-item">
               <a href="#" className="navbar-link hover:underline" data-nav-link onClick={closeAll}>
                 Membership
               </a>
-            </li> */}
+            </li>
           </ul>
         </nav>
 
-        {/* Wrapper for Search and Menu Toggle Buttons */}
+        {/* Wrapper for Search, Login, and Menu Toggle Buttons */}
         <div className="wrapper">
-          {/* Search Button */}
+          {/* Search Button (Visible on Mobile) */}
           <button
-            className="search-btn"
+            className="search-btn mobile-search-btn"
             aria-label="search"
             onClick={toggleSearchBar}
             data-search-toggler
           >
             <IonIcon name="search-outline" ariaHidden={true} />
-            <span className="span">Search</span>
           </button>
 
+          {/* Login Button 
+          <a href="./Login.tsx" className="btn mobile-login-btn">
+            Login
+          </a>o */}
+
+            <Link href="/login">
+                <button className="btn mobile-login-btn">Login</button>
+            </Link>
           {/* Mobile Menu Toggle Button */}
           <button
             className={`nav-toggle-btn ${isMenuVisible ? 'active' : ''}`}
@@ -79,11 +87,6 @@ const Header: React.FC = () => {
             <span className="span two"></span>
             <span className="span three"></span>
           </button>
-
-          {/* Join Button */}
-          <a href="#" className="btn">
-            Join
-          </a>
         </div>
       </div>
 

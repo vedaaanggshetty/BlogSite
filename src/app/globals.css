@@ -1030,3 +1030,33 @@ body::before {
   padding: 1.5rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 } 
+/* Mobile Buttons */
+.mobile-search-btn,
+.mobile-login-btn {
+  display: none; /* Hide by default */
+}
+
+@media (max-width: 767px) {
+  .mobile-search-btn,
+  .mobile-login-btn {
+    display: block; /* Show on mobile */
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between buttons */
+  }
+
+  .nav-toggle-btn {
+    order: 3; /* Menu toggle button on the far right */
+  }
+
+  .mobile-search-btn {
+    order: 1; /* Search button on the left */
+  }
+
+  .mobile-login-btn {
+    order: 2; /* Login button in the middle */
+  }
+}
